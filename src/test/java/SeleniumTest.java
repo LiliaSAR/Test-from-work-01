@@ -38,7 +38,10 @@ public class SeleniumTest {
         signInButton.click();
         WebElement errorMessage = driver.findElement(By.cssSelector("#js-flash-container .flash-error"));
         assertTrue(errorMessage.isDisplayed(), "Error message was not displayed!");
+
+
     }
+
 
     @AfterMethod
     public void tearDown()
