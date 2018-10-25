@@ -1,7 +1,8 @@
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
     private WebDriver driver;
     private By usernameField = By.name("login");
     private By passwordField = By.name("password");
@@ -10,11 +11,17 @@ public class LoginPage {
 
 
     public LoginPage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
-        driver.get("https://github.com/login");
+        driver.get(getUrl());
+    }
+    public String getUrl()
+    {
+        return "https://github.com/login";
     }
 
     public void loginWith(String username, String password) {
+        type(usernameField, username);
         driver.findElement(usernameField).sendKeys(username);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(signInButton).click();
