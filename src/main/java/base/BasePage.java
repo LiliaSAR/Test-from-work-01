@@ -17,11 +17,13 @@ public abstract class BasePage {
 
     public void type(WebElement element, String text)
     {
+        System.out.println("Typing"+ text + "to element with location" + element.toString());
         element.sendKeys(text);
     }
 
     public void type(By location, String text)
     {
+
         type(find(location), text);
     }
 
@@ -40,6 +42,7 @@ public abstract class BasePage {
     }
     public  void click(WebElement element)
     {
+        System.out.println("Cliking onelement with location" + element.toString());
         element.click();
     }
     public  void click(By location)

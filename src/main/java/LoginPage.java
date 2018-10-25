@@ -22,9 +22,8 @@ public class LoginPage extends BasePage {
 
     public void loginWith(String username, String password) {
         type(usernameField, username);
-        driver.findElement(usernameField).sendKeys(username);
-        driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(signInButton).click();
+        type(passwordField,password);
+        click(signInButton);
     }
 
     public boolean isErrorMessageDisplayed() {
