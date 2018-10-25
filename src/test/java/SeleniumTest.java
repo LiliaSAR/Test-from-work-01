@@ -6,6 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class SeleniumTest {
@@ -30,6 +31,8 @@ public class SeleniumTest {
     public void githubFailedLogin()
     {
         LoginPage loginPage =  new LoginPage(driver);
+
+        assertFalse(loginPage.isErrorMessageDisplayed(),"Error mesage is not displayed");
         loginPage.loginWith("mail@mail.am", "Password");
 
         assertTrue(loginPage.isErrorMessageDisplayed(), "Error message was not displayed!");

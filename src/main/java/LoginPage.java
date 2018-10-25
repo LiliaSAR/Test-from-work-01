@@ -24,10 +24,11 @@ public class LoginPage extends BasePage {
         type(usernameField, username);
         type(passwordField,password);
         click(signInButton);
+
     }
 
     public boolean isErrorMessageDisplayed() {
-        return driver.findElement(errorMessage).isDisplayed();
+        return isDisplayed(errorMessage);
     }
 
 }
