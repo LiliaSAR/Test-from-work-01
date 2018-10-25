@@ -26,18 +26,12 @@ public class SeleniumTest {
     {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\lilias\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("https://github.com/login");
 
-        WebElement loginField = driver.findElement(By.name("login"));
-        WebElement passwordField = driver.findElement(By.name("password"));
-        WebElement signInButton = driver.findElement(By.name("commit"));
+        LoginPage loginPage =  new LoginPage(driver);
+        loginPage.loginWith("mail@mail.am", "Password");
 
-        loginField.sendKeys("mail@mail.com");
-        passwordField.sendKeys("pass01");
 
-        signInButton.click();
-        WebElement errorMessage = driver.findElement(By.cssSelector("#js-flash-container .flash-error"));
-        assertTrue(errorMessage.isDisplayed(), "Error message was not displayed!");
+        assertTrue(loginPage.isErrorMessageDisplayed(), "Error message was not displayed!");
     }
 
 
